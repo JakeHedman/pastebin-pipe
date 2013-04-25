@@ -1,0 +1,14 @@
+#!/usr/bin/python
+key = "baf3087dd775040fbc790e976b34a24f"
+
+import sys
+import requests
+
+url = "http://pastebin.com/api/api_post.php"
+postdata = {
+	"api_paste_code": sys.stdin.read().strip(),
+	"api_dev_key": key,
+	"api_option": "paste"
+}
+
+print requests.post(url, data=postdata).text
